@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Présentation - École TinkaTout</title>
+    
+    <!-- Polices Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icônes Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles intégrés -->
+    <style>
+        /* === VARIABLES GLOBALES === */
+        :root {
+            --primary: #3498db;
+            --primary-dark: #2980b9;
+            --primary-light: #3a7ab3;
+            --secondary: #e9b44c;
+            --accent: #e74c3c;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+            --border: #dee2e6;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --radius: 8px;
+        }
+
+        /* === RÉINITIALISATION DES STYLES === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f7fa;
+            overflow-x: hidden;
+        }
+
+        /* === TYPOGRAPHIE === */
+        h1, h2, h3, h4 {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+        }
+
+        h3 {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            margin-top: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            color: var(--dark);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-light);
+        }
+
+        /* === UTILITAIRES === */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--primary);
+            color: white;
+            border-radius: 4px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        /* === HEADER === */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 90%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-family: 'Quicksand', sans-serif;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .logo-icon {
+            color: var(--primary);
+            margin-right: 10px;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--dark);
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 5px;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover:after,
+        nav ul li a.active:after {
+            width: 100%;
+        }
+
+        nav ul li a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* === SECTION HÉRO === */
+        .hero {
+            height: 70vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(52, 152, 219, 0.85), rgba(41, 128, 185, 0.9)), 
+                         url('https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3') center/cover;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding-top: 0;
+            margin-top: 0;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 6vw, 3.2rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 2.5rem;
+        }
+
+        /* === SECTION INTRODUCTION === */
+        .intro {
+            background: white;
+        }
+
+        .intro-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .intro-text h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-image {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 400px;
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), 
+                        url('https://images.unsplash.com/photo-1541692641319-981cc79ee10a?ixlib=rb-4.0.3') center/cover;
+            position: relative;
+        }
+
+        /* === SECTION MISSION === */
+        .mission {
+            background: var(--light);
+        }
+
+        .mission .container {
+            text-align: center;
+        }
+
+        .mission p {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .value-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .value-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        /* === SECTION VISION === */
+        .vision {
+            background: white;
+        }
+
+        .vision p {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            text-align: center;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: var(--secondary);
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            display: flex;
+            align-items: center;
+            min-height: 100px;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px var(--secondary);
+            z-index: 2;
+        }
+
+        .timeline-content {
+            position: relative;
+            width: 45%;
+            padding: 2rem;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: auto;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+        }
+
+        .timeline-year {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .timeline-content h3 {
+            margin: 1rem 0 0.5rem 0;
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+
+        .timeline-content p {
+            margin-bottom: 0;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* === SECTION VALEURS === */
+        .valeurs {
+            background: linear-gradient(rgba(52, 152, 219, 0.05), rgba(41, 128, 185, 0.05));
+        }
+
+        .valeurs p {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            text-align: center;
+        }
+
+        .valeurs .values-grid {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        /* === SECTION STATISTIQUES === */
+        .stats {
+            background: var(--primary);
+            color: white;
+        }
+
+        .stats h2:after {
+            background: var(--secondary);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .stats p {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem 1rem;
+            border-radius: var(--radius);
+            text-align: center;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-number {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .stat-label {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 500;
+        }
+
+        /* === SECTION APPEL À L'ACTION === */
+        .appel {
+            background: linear-gradient(rgba(46, 204, 113, 0.9), rgba(39, 174, 96, 0.9));
+            text-align: center;
+        }
+
+        .appel h2 {
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .appel h2:after {
+            background: white;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .appel p {
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: white;
+        }
+
+        .action-button {
+            margin-top: 2rem;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col {
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3 {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .footer-col p {
+            color: #f8f9fa;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links li a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: clamp(0.8rem, 2vw, 1rem);
+        }
+
+        .footer-links li a:hover {
+            color: white;
+        }
+
+        .footer-contact li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--primary);
+            min-width: 20px;
+            margin-top: 2px;
+        }
+
+        .footer-contact span {
+            font-size: clamp(0.8rem, 2vw, 1rem);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 1.5rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+        }
+
+        /* === RESPONSIVE DESIGN === */
+        
+        /* Large tablets and small desktops */
+        @media (max-width: 992px) {
+            section {
+                padding: 3rem 0;
+            }
+            
+            .header-container {
+                padding: 0.8rem 0;
+            }
+            
+            nav ul li {
+                margin-left: 1.5rem;
+            }
+            
+            .hero {
+                height: 60vh;
+                min-height: 450px;
+            }
+            
+            .intro-content {
+                gap: 3rem;
+            }
+            
+            .intro-image {
+                height: 300px;
+            }
+            
+            /* Timeline responsive pour tablettes */
+            .timeline {
+                padding: 0 40px;
+            }
+            
+            .timeline:before {
+                left: 40px;
+                margin-left: 0;
+            }
+            
+            .timeline-item {
+                justify-content: flex-start;
+            }
+            
+            .timeline-item::after {
+                left: 40px;
+                transform: translate(-50%, -50%);
+            }
+            
+            .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 80px !important;
+                margin-right: 0 !important;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+        }
+
+        /* Tablets */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+                z-index: 1001;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background: white;
+                transition: var(--transition);
+                padding-top: 80px;
+                z-index: 1000;
+                overflow-y: auto;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 2rem;
+            }
+            
+            nav ul li {
+                margin: 0 0 1.5rem 0;
+                width: 100%;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 1rem 0;
+                font-size: 1.2rem;
+                border-bottom: 1px solid var(--border);
+            }
+            
+            .hero {
+                height: 50vh;
+                min-height: 400px;
+            }
+            
+            .intro-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .intro-image {
+                height: 250px;
+            }
+            
+            /* Timeline mobile optimisée */
+            .timeline {
+                padding: 0 20px;
+            }
+            
+            .timeline:before {
+                left: 30px;
+                margin-left: 0;
+            }
+            
+            .timeline-item {
+                justify-content: flex-start;
+                margin-bottom: 3rem;
+            }
+            
+            .timeline-item::after {
+                left: 30px;
+                width: 16px;
+                height: 16px;
+                border-width: 3px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 70px);
+                margin-left: 70px !important;
+                margin-right: 0 !important;
+                padding: 1.5rem;
+            }
+            
+            .timeline-year {
+                font-size: 0.9rem;
+                padding: 0.3rem 0.8rem;
+                margin-bottom: 0.8rem;
+            }
+            
+            .timeline-content h3 {
+                font-size: 1.2rem;
+                margin: 0.8rem 0 0.5rem 0;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .valeurs .values-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .stat-card {
+                padding: 1.5rem 1rem;
+            }
+        }
+
+        /* Mobile phones */
+        @media (max-width: 576px) {
+            .container {
+                width: 95%;
+                padding: 0 10px;
+            }
+            
+            section {
+                padding: 2.5rem 0;
+            }
+            
+            .hero {
+                height: 50vh;
+                min-height: 350px;
+            }
+            
+            .hero-content {
+                padding: 0 15px;
+            }
+            
+            .intro-image {
+                height: 200px;
+            }
+            
+            .value-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .values-grid,
+            .stats-grid,
+            .valeurs .values-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            /* Timeline mobile très petits écrans */
+            .timeline {
+                padding: 0 15px;
+            }
+            
+            .timeline:before {
+                left: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 25px;
+                width: 14px;
+                height: 14px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 55px);
+                margin-left: 55px !important;
+                padding: 1.2rem;
+            }
+            
+            .timeline-year {
+                font-size: 0.8rem;
+                padding: 0.25rem 0.6rem;
+            }
+            
+            .timeline-content h3 {
+                font-size: 1.1rem;
+            }
+            
+            .timeline-content p {
+                font-size: 0.9rem;
+            }
+            
+            .btn {
+                width: 100%;
+                padding: 15px;
+                font-size: 1rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 375px) {
+            .hero {
+                min-height: 300px;
+            }
+            
+            .value-card {
+                padding: 1.5rem 1rem;
+            }
+            
+            .stat-card {
+                padding: 1.5rem 0.5rem;
+            }
+            
+            /* Timeline très petits écrans */
+            .timeline {
+                padding: 0 10px;
+            }
+            
+            .timeline:before {
+                left: 20px;
+            }
+            
+            .timeline-item::after {
+                left: 20px;
+                width: 12px;
+                height: 12px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 45px);
+                margin-left: 45px !important;
+                padding: 1rem;
+            }
+            
+            .timeline-year {
+                font-size: 0.75rem;
+                padding: 0.2rem 0.5rem;
+            }
+            
+            .timeline-content h3 {
+                font-size: 1rem;
+            }
+            
+            .timeline-content p {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* === ANIMATIONS AMÉLIORÉES === */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* === AMÉLIORATIONS POUR LE TACTILE === */
+        @media (hover: none) {
+            .value-card:hover,
+            .stat-card:hover,
+            .btn:hover {
+                transform: none;
+            }
+            
+            .value-card:active,
+            .stat-card:active {
+                transform: scale(0.98);
+            }
+            
+            .btn:active {
+                transform: scale(0.95);
+            }
+        }
+
+        /* === AMÉLIORATION DE LA LISIBILITÉ === */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- === EN-TÊTE === -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-school logo-icon"></i>
+                <div class="logo-text">École <span>Tinka-Tout</span></div>
+            </div>
+            
+            <!-- Bouton menu mobile -->
+            <button class="mobile-menu-btn" aria-label="Menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- Navigation principale -->
+            <nav role="navigation" aria-label="Navigation principale">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="presentation.html" class="active">Présentation</a></li>
+                    <li><a href="classes.html">Nos Classes</a></li>
+                    <li><a href="inscription.html">Inscriptions</a></li>
+                    <li><a href="actualites.html">Actualités</a></li>
+                    <li><a href="galerie.html">Galerie</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- === SECTION HÉRO === -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Notre École, Notre Mission</h1>
+            <p>Découvrez l'histoire, les valeurs et l'engagement de l'École TinkaTout envers l'excellence éducative</p>
+        </div>
+    </section>
+
+    <!-- === SECTION INTRODUCTION === -->
+    <section class="intro">
+        <div class="container">
+            <div class="intro-content">
+                <div class="intro-text">
+                    <h2>Bienvenue à TinkaTout</h2>
+                    <p>Fondée en 2020, l'École TinkaTout est un établissement d'enseignement primaire et secondaire situé au cœur de Lomé. Depuis plus de deux décennies, nous nous engageons à offrir une éducation de qualité axée sur l'excellence académique, le développement personnel et la formation de citoyens responsables.</p>
+                    
+                   <p>Nous accueillons des enfants et des élèves de moins de 6 mois à 18 ans, répartis comme suit : une crèche pour les enfants de moins de 6 mois, une garderie pour les enfants de 6 à 10 ans, un préscolaire divisé en deux sections — Section 1 pour les 3 à 4 ans révolus et Section 2 pour les 4 à 5 ans révolus —, puis de la maternelle jusqu’à la terminale. Nous sommes fiers de notre diversité culturelle, qui reflète la richesse du Togo.</p>
+                </div>
+                <div class="intro-image" role="img" aria-label="Campus de l'école TinkaTout"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECTION MISSION === -->
+    <section class="mission">
+        <div class="container">
+            <h2>Notre mission</h2>
+            <p>Accompagner chaque élève dans son développement intellectuel, moral et social, en lui offrant un environnement stimulant, sécurisé et adapté à ses besoins individuels.</p>
+            
+            <div class="values-grid">
+                <div class="value-card fade-in">
+                    <div class="value-icon">💡</div>
+                    <h3>Excellence Académique</h3>
+                    <p>Un programme rigoureux et innovant qui prépare les élèves aux défis du 21e siècle.</p>
+                </div>
+                
+                <div class="value-card fade-in">
+                    <div class="value-icon">❤️</div>
+                    <h3>Développement Personnel</h3>
+                    <p>Encourager la confiance en soi, la créativité et l'expression personnelle.</p>
+                </div>
+                
+                <div class="value-card fade-in">
+                    <div class="value-icon">🌍</div>
+                    <h3>Citoyenneté Responsable</h3>
+                    <p>Former des citoyens engagés, conscients de leur rôle dans la société et le monde.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECTION VISION === -->
+    <section class="vision">
+        <div class="container">
+            <h2>Notre vision</h2>
+            <p>Être reconnue comme une référence éducative au Togo et en Afrique de l'Ouest en alliant innovation pédagogique, valeurs traditionnelles et ouverture sur le monde.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content fade-in">
+                        <div class="timeline-year">2020</div>
+                        <h3>Fondation de l'école</h3>
+                        <p>Ouverture avec 3 élèves et 2 enseignants dans un petit bâtiment a Adeticopé.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content fade-in">
+                        <div class="timeline-year">2022</div>
+                        <h3>Développement des infrastructures sur le site actuel</h3>
+                        <p>Inauguration des nouveaux infrastructures avec des installations modernes et une capacité accueillant 1000 élèves.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content fade-in">
+                        <div class="timeline-year">2024</div>
+                        <h3>Types de programmes</h3>
+                        <p>Programmes culturels ou artistiques : stage ou camp international pour développer des compétences artistiques ou sportives.</p>
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECTION VALEURS === -->
+    <section class="valeurs">
+        <div class="container">
+            <h2>Nos valeurs fondamentales</h2>
+            <p>Ces principes guident chaque aspect de notre vie scolaire et forment le socle de notre communauté éducative.</p>
+            
+            <div class="values-grid">
+                <div class="value-card fade-in">
+                    <div class="value-icon">🙏</div>
+                    <h3>Respect</h3>
+                    <p>Envers soi-même, les autres, l'environnement et les différences culturelles.</p>
+                </div>
+                
+                <div class="value-card fade-in">
+                    <div class="value-icon">🎯</div>
+                    <h3>Responsabilité</h3>
+                    <p>Apprendre à faire des choix éclairés et à en assumer les conséquences.</p>
+                </div>
+                
+                <div class="value-card fade-in">
+                    <div class="value-icon">💪</div>
+                    <h3>Travail</h3>
+                    <p>Cultiver l'effort, la persévérance et le dépassement de soi pour atteindre l'excellence.</p>
+                </div>
+                
+                <div class="value-card fade-in">
+                    <div class="value-icon">🤝</div>
+                    <h3>Solidarité</h3>
+                    <p>Apprendre à vivre ensemble, à s'entraider et à construire une communauté bienveillante.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECTION STATISTIQUES === -->
+    <section class="stats">
+        <div class="container">
+            <h2 class="text-center">Tinka-Tout en chiffres</h2>
+            <p class="text-center">Quelques indicateurs qui témoignent de notre engagement et de notre croissance</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card fade-in">
+                    <div class="stat-number" data-target="850">0</div>
+                    <div class="stat-label">Élèves</div>
+                </div>
+                
+                <div class="stat-card fade-in">
+                    <div class="stat-number" data-target="65">0</div>
+                    <div class="stat-label">Enseignants</div>
+                </div>
+                
+                <div class="stat-card fade-in">
+                    <div class="stat-number" data-target="25">0</div>
+                    <div class="stat-label">Salles de classe</div>
+                </div>
+                
+                <div class="stat-card fade-in">
+                    <div class="stat-number" data-target="98">0</div>
+                    <div class="stat-label">Réussite au CEPD</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECTION APPEL À L'ACTION === -->
+    <section class="appel">
+        <div class="container">
+            <h2>Pourquoi choisir TinkaTout ?</h2>
+            <p>Un corps enseignant qualifié et passionné, un suivi personnalisé de chaque élève, une infrastructure moderne et adaptée, une diversité de clubs et activités extrascolaires, et un environnement multiculturel enrichissant.</p>
+            <div class="action-button">
+                <a href="inscription.html" class="btn">Inscrivez votre enfant dès maintenant</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- === PIED DE PAGE === -->
+    <footer>
+        <div class="container">
+            <!-- Grille de 4 colonnes -->
+            <div class="footer-grid">
+                <!-- Colonne 1 : Présentation école -->
+                <div class="footer-col">
+                    <div class="logo">
+                        <i class="fas fa-school logo-icon"></i>
+                        <div class="logo-text">École <span>Tinka-Tout</span></div>
+                    </div>
+                    <p>Éducation de qualité pour les enfants de la Garderie, de la Maternelle (Section 1 et Section 2) jusqu’au CM2.  
+  Un environnement bienveillant qui favorise l’épanouissement et l’excellence</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Colonne 2 : Liens rapides -->
+                <div class="footer-col">
+                    <h3>Liens Rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="presentation.html">Présentation</a></li>
+                        <li><a href="classes.html">Nos Classes</a></li>
+                        <li><a href="inscription.html">Inscriptions</a></li>
+                        <li><a href="actualites.html">Actualités</a></li>
+                        <li><a href="galerie.html">Galerie</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Colonne 3 : Horaires -->
+                <div class="footer-col">
+                    <h3>Horaires</h3>
+                    <ul class="footer-links">
+                        <li>Lundi - Vendredi: 7h30 - 17h30</li>
+                        <li>Samedi: 8h - 12h (activités périscolaires)</li>
+                        <li>Dimanche: Fermé</li>
+                    </ul>
+                </div>
+                
+                <!-- Colonne 4 : Contact -->
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>sise coté sud du bar carrefour des grands Adetikopé route Djaglé, Lomé - Togo</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+228 90 09 30 95</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@ecole-tinka-tout.tg</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="copyright">
+                <p>&copy; 2025 École Tinka-Tout - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- === JAVASCRIPT === -->
+    <script>
+        // ===== MENU MOBILE =====
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        const body = document.body;
+        
+        // Toggle menu mobile
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            nav.classList.toggle('active');
+            const isOpen = nav.classList.contains('active');
+            
+            // Mise à jour de l'accessibilité
+            mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+            
+            // Changement de l'icône
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+            
+            // Empêcher le scroll du body quand le menu est ouvert
+            body.style.overflow = isOpen ? 'hidden' : '';
+        });
+        
+        // Fermer le menu au clic sur un lien
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
+                body.style.overflow = '';
+            });
+        });
+        
+        // Fermer le menu au clic à l'extérieur
+        document.addEventListener('click', (e) => {
+            if (!nav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                nav.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
+                body.style.overflow = '';
+            }
+        });
+        
+        // ===== HEADER SCROLL =====
+        const header = document.querySelector('header');
+        let lastScrollY = window.scrollY;
+        
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 100) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.backgroundColor = 'white';
+                header.style.backdropFilter = 'none';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+            
+            lastScrollY = currentScrollY;
+        });
+        
+        // ===== ANIMATION DES CHIFFRES =====
+        function animateNumbers() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-target'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    
+                    // Ajouter le "+" pour les élèves et "%" pour la réussite
+                    if (target === 850) {
+                        stat.textContent = Math.floor(current) + '+';
+                    } else if (target === 98) {
+                        stat.textContent = Math.floor(current) + '%';
+                    } else {
+                        stat.textContent = Math.floor(current);
+                    }
+                }, 16);
+            });
+        }
+        
+        // ===== INTERSECTION OBSERVER POUR LES ANIMATIONS =====
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('stats')) {
+                        animateNumbers();
+                    }
+                    
+                    if (entry.target.classList.contains('fade-in')) {
+                        entry.target.classList.add('visible');
+                    }
+                    
+                    // Observer chaque élément seulement une fois
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        // Observer les éléments d'animation
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Observer la section stats
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+        
+        // ===== ANIMATION AU CHARGEMENT =====
+        window.addEventListener('load', () => {
+            const heroContent = document.querySelector('.hero-content');
+            if (heroContent) {
+                heroContent.style.opacity = '1';
+                heroContent.style.transform = 'translateY(0)';
+            }
+            
+            // Vérifier les éléments déjà visibles
+            document.querySelectorAll('.fade-in').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    el.classList.add('visible');
+                }
+            });
+        });
+        
+        // Initialisation des styles d'animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroContent = document.querySelector('.hero-content');
+            if (heroContent) {
+                heroContent.style.opacity = '0';
+                heroContent.style.transform = 'translateY(20px)';
+                heroContent.style.transition = 'opacity 1s ease, transform 1s ease';
+            }
+        });
+        
+        // ===== ANIMATION DES ICÔNES AU SURVOL =====
+        const valueIcons = document.querySelectorAll('.value-icon');
+        
+        valueIcons.forEach(icon => {
+            icon.style.transition = 'transform 0.3s ease';
+            
+            icon.addEventListener('mouseenter', () => {
+                icon.style.transform = 'scale(1.2) rotate(5deg)';
+            });
+            
+            icon.addEventListener('mouseleave', () => {
+                icon.style.transform = 'scale(1) rotate(0)';
+            });
+        });
+        
+        // ===== GESTION DU REDIMENSIONNEMENT =====
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                // Fermer le menu mobile si ouvert lors du redimensionnement
+                if (window.innerWidth > 768) {
+                    nav.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
+                    body.style.overflow = '';
+                }
+            }, 100);
+        });
+        
+        // ===== AMÉLIORATION DE LA PERFORMANCE =====
+        // Utilisation de requestAnimationFrame pour les animations fluides
+        let ticking = false;
+        
+        function updateOnScroll() {
+            const scrollY = window.scrollY;
+            
+            // Animation de parallaxe légère pour le hero
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrollY * 0.3}px)`;
+            }
+            
+            ticking = false;
+        }
+        
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateOnScroll);
+                ticking = true;
+            }
+        });
+        
+        // ===== ACCESSIBILITÉ : GESTION DU CLAVIER =====
+        document.addEventListener('keydown', (e) => {
+            // Fermer le menu mobile avec Escape
+            if (e.key === 'Escape' && nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
+                body.style.overflow = '';
+                mobileMenuBtn.focus();
+            }
+        });
+        
+        // ===== OPTIMISATION DES IMAGES =====
+        // Lazy loading pour les images de fond (si on en ajoute plus tard)
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('loaded');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.intro-image').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+    </script>
+</body>
+</html>

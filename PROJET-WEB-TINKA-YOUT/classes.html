@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nos Classes - École Tinka-Tout</title>
+  
+  <!-- Polices Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Icônes Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Styles intégrés -->
+  <style>
+    /* === VARIABLES GLOBALES === */
+    :root {
+      --primary: #3498db;         /* Bleu principal */
+      --primary-dark: #2980b9;    /* Bleu foncé */
+      --secondary: #2ecc71;       /* Vert secondaire */
+      --accent: #e74c3c;          /* Rouge d'accentuation */
+      --light: #f8f9fa;           /* Fond clair */
+      --dark: #343a40;            /* Texte foncé */
+      --gray: #6c757d;            /* Texte gris */
+      --border: #dee2e6;          /* Bordures */
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre douce */
+      --transition: all 0.3s ease; /* Transition douce */
+    }
+
+    /* === RÉINITIALISATION DES STYLES === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: #f5f7fa;
+      overflow-x: hidden;
+    }
+
+    /* === TYPOGRAPHIE === */
+    h1, h2, h3, h4 {
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--secondary);
+    }
+
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--primary);
+      transition: var(--transition);
+    }
+
+    a:hover {
+      color: var(--primary-dark);
+    }
+
+    /* === UTILITAIRES === */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: var(--primary);
+      color: white;
+      border-radius: 4px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    /* === HEADER === */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .logo-icon {
+      color: var(--primary);
+      margin-right: 10px;
+      font-size: 2rem;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 2rem;
+    }
+
+    nav ul li a {
+      color: var(--dark);
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    nav ul li a:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+
+    nav ul li a:hover:after,
+    nav ul li a.active:after {
+      width: 100%;
+    }
+
+    nav ul li a.active {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--dark);
+      cursor: pointer;
+    }
+
+    /* === SECTION HÉRO === */
+    .hero {
+      height: 60vh;
+      min-height: 500px;
+      background: linear-gradient(rgba(52, 152, 219, 0.8), rgba(41, 128, 185, 0.9)), 
+                  url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3') center/cover;
+      display: flex;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding-top: 0;
+      margin-top: 0;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      margin-bottom: 2.5rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* === SECTION INTRODUCTION === */
+    .intro {
+      background: white;
+      padding: 3rem 0;
+    }
+
+    .section-title {
+      margin-bottom: 2rem;
+    }
+
+    .section-title h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .intro p {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* === CONTENEUR DES CLASSES === */
+    .classes-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin: 3rem auto;
+    }
+
+    .classe {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .classe:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .classe-image {
+      height: 250px;
+      overflow: hidden;
+    }
+
+    .classe-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .classe:hover .classe-image img {
+      transform: scale(1.05);
+    }
+
+    .classe-header {
+      padding: 1.5rem 1.5rem 0.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .classe-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .classe-header h3 {
+      margin: 0;
+      color: var(--primary);
+    }
+
+    .classe-header p {
+      color: var(--gray);
+      font-size: 1rem;
+    }
+
+    .classe-content {
+      padding: 1.5rem;
+    }
+
+    .classe-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0.8rem;
+      background: rgba(52, 152, 219, 0.05);
+      border-radius: 8px;
+    }
+
+    .info-item i {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    /* === SECTION ENSEIGNANTS === */
+    .enseignants-section {
+      background: var(--light);
+    }
+
+    .teachers-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .teacher-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .teacher-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .teacher-image {
+      height: 250px;
+      overflow: hidden;
+    }
+
+    .teacher-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .teacher-info {
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .teacher-info h4 {
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .subject {
+      background: var(--secondary);
+      color: white;
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .teacher-social {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .teacher-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 35px;
+      height: 35px;
+      background: rgba(52, 152, 219, 0.1);
+      border-radius: 50%;
+      color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .teacher-social a:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* === SECTION GALERIE === */
+    .school-gallery {
+      background: white;
+    }
+
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-item {
+      height: 250px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-item:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover:after {
+      opacity: 1;
+    }
+
+    /* === FOOTER === */
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 4rem 0 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-col {
+      margin-bottom: 2rem;
+    }
+
+    .footer-col h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .footer-col h3:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links li a {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-links li a:hover {
+      color: white;
+    }
+
+    .footer-contact li {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .footer-contact i {
+      margin-right: 10px;
+      color: var(--primary);
+      min-width: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+    }
+
+    /* === RESPONSIVE DESIGN === */
+    @media (max-width: 992px) {
+      .classes-container,
+      .teachers-container,
+      .gallery-container,
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      nav {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: white;
+        transition: var(--transition);
+      }
+      
+      nav.active {
+        left: 0;
+      }
+      
+      nav ul {
+        flex-direction: column;
+        padding: 2rem;
+      }
+      
+      nav ul li {
+        margin: 0 0 1.5rem 0;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1.2rem;
+      }
+      
+      .classes-container,
+      .teachers-container,
+      .gallery-container,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 576px) {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.75rem;
+      }
+      
+      .hero {
+        height: 50vh;
+        min-height: 400px;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- === EN-TÊTE === -->
+  <header>
+    <div class="container header-container">
+      <div class="logo">
+        <i class="fas fa-school logo-icon"></i>
+        <div class="logo-text">École <span>Tinka-Tout</span></div>
+      </div>
+      
+      <!-- Bouton menu mobile -->
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <!-- Navigation principale -->
+      <nav>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="presentation1.html">Présentation</a></li>
+          <li><a href="classes.html" class="active">Nos Classes</a></li>
+          <li><a href="inscription.html">Inscriptions</a></li>
+          <li><a href="actualites.html">Actualités</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- === SECTION HÉRO === -->
+  <section class="hero">
+    <h1>Nos Classes</h1>
+    <p>Découvrez les différentes classes disponibles de la maternelle jusqu'au CM2</p>
+  </section>
+
+  <!-- === CONTENU PRINCIPAL === -->
+  <main class="container">
+    <!-- Section d'introduction -->
+    <div class="intro">
+      <div class="section-title">
+        <h2>Nos Cycles d'Apprentissage</h2>
+      </div>
+      <p>Éducation de qualité pour les enfants de la Garderie, de la Maternelle (Section 1 et Section 2) jusqu’au CM2.  
+  Un environnement bienveillant qui favorise l’épanouissement et l’excellence</p>
+    </div>
+
+    <!-- === CONTENEUR DES CLASSES === -->
+    <div class="classes-container">
+      <!-- Classe Garderie -->
+      <div class="classe">
+        <div class="classe-image">
+          <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Garderie">
+        </div>
+        <div class="classe-header">
+          <i class="fas fa-baby classe-icon"></i>
+          <h3>Garderie</h3>
+          <p>2 à 3 ans</p>
+        </div>
+        <div class="classe-content">
+          <p>Un espace d'éveil et de socialisation pour les tout-petits. Accompagnement personnalisé dans un environnement sécurisé et stimulant.</p>
+          <div class="classe-info">
+            <div class="info-item">
+              <i class="fas fa-child"></i>
+              <span>12 enfants max</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-user-graduate"></i>
+              <span>2 éducatrices</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-clock"></i>
+              <span>7h30 - 18h</span>
+            </div>
+          </div>
+          <p><strong>Activités :</strong> Éveil sensoriel, motricité fine, jeux d'éveil, socialisation</p>
+        </div>
+      </div>
+
+      <!-- Classe Maternelle -->
+      <div class="classe">
+        <div class="classe-image">
+          <img src="https://images.unsplash.com/photo-1541692641319-981cc79ee10a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Salle de classe maternelle">
+        </div>
+        <div class="classe-header">
+          <i class="fas fa-puzzle-piece classe-icon"></i>
+          <h3>Maternelle</h3>
+          <p>Cycle 1 - 3 à 5 ans</p>
+        </div>
+        <div class="classe-content">
+          <p>Un environnement ludique pour initier les enfants à l'apprentissage dès leur jeune âge. Développement du langage, socialisation et premières découvertes.</p>
+          <div class="classe-info">
+            <div class="info-item">
+              <i class="fas fa-child"></i>
+              <span>15 enfants max</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-user-graduate"></i>
+              <span>2 enseignants</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-clock"></i>
+              <span>8h30 - 16h</span>
+            </div>
+          </div>
+          <p><strong>Sections :</strong> Section 1 (3-4 ans) et Section 2 (4-5 ans)</p>
+          <p><strong>Activités :</strong> Éveil sensoriel, motricité, arts plastiques, découverte du monde</p>
+        </div>
+      </div>
+
+      <!-- Classe CP1 -->
+      <div class="classe">
+        <div class="classe-image">
+          <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Classe CP1">
+        </div>
+        <div class="classe-header">
+          <i class="fas fa-book-open classe-icon"></i>
+          <h3>CP1</h3>
+          <p>Cycle 2 - 6 ans</p>
+        </div>
+        <div class="classe-content">
+          <p>Premiers pas dans la lecture, l'écriture et les mathématiques. Approche progressive et bienveillante des apprentissages fondamentaux.</p>
+          <div class="classe-info">
+            <div class="info-item">
+              <i class="fas fa-child"></i>
+              <span>20 enfants max</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-user-graduate"></i>
+              <span>1 enseignant</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-clock"></i>
+              <span>8h30 - 16h30</span>
+            </div>
+          </div>
+          <p><strong>Programme :</strong> Lecture syllabique, écriture cursive, calcul mental, découverte</p>
+        </div>
+      </div>
+
+      <!-- Classe CP2 -->
+      <div class="classe">
+        <div class="classe-image">
+          <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Classe CP2">
+        </div>
+        <div class="classe-header">
+          <i class="fas fa-book-reader classe-icon"></i>
+          <h3>CP2</h3>
+          <p>Cycle 2 - 6-7 ans</p>
+        </div>
+        <div class="classe-content">
+          <p>Approfondissement des bases en français et en calcul mental. Consolidation des acquis et développement de l'autonomie.</p>
+          <div class="classe-info">
+            <div class="info-item">
+              <i class="fas fa-child"></i>
+              <span>22 enfants max</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-user-graduate"></i>
+              <span>1 enseignant</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-clock"></i>
+              <span>8h30 - 16h30</span>
+            </div>
+          </div>
+          <p><strong>Objectifs :</strong> Lecture fluide, rédaction de phrases, résolution de problèmes simples</p>
+        </div>
+      </div>
+
+      <!-- Classe CE1 -->
+      <div class="classe">
+        <div class="classe-image">
+          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Classe CE1">
+        </div>
+        <div class="classe-header">
+          <i class="fas fa-calculator classe-icon"></i>
+          <h3>CE1</h3>
+          <p>Cycle 2 - 7-8 ans</p>
+        </div>
+        <div class="classe-content">
+          <p>Développement des compétences en rédaction et résolution de problèmes. Introduction aux sciences et à l'histoire.</p>
+          <div class="classe-info">
+            <div class="info-item">
+              <i class="fas fa-child"></i>
+              <span>24 enfants max</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-user-graduate"></i>
+              <span>1 enseignant</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-clock"></i>
+              <span>8h30 - 16h30</span>
+            </div>
+          </div>
+          <p><strong>Apprentissages :</strong> Grammaire, conjugaison, opérations, mesures, découverte du temps</p>
+        </div>
+      </div>
+
+      <!-- Classe CE2 -->
+      <div class="classe">
+        <div class="classe-image">
+          <img src="https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Classe CE2">
+        </div>
+        <div class="classe-header">
+          <i class="fas fa-microscope classe-icon"></i>
+          <h3>CE2</h3>
+          <p>Cycle 2 - 8-9 ans</p>
+        </div>
+        <div class="classe-content">
+          <p>Renforcement des connaissances fondamentales et des activités pratiques. Développement de l'esprit critique et de la curiosité.</p>
+          <div class="classe-info">
+            <div class="info-item">
+              <i class="fas fa-child"></i>
+              <span>24 enfants max</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-user-graduate"></i>
+              <span>1 enseignant</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-clock"></i>
+              <span>8h30 - 16h30</span>
+            </div>
+          </div>
+          <p><strong>Explorations :</strong> Sciences expérimentales, géographie, éducation artistique</p>
+        </div>
+      </div>
+
+      <!-- Classe CM1 -->
+      <div class="classe">
+        <div class="classe-image">
+          <img src="https://images.unsplash.com/photo-1588075592440-5d1c12ed1f01?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Classe CM1">
+        </div>
+        <div class="classe-header">
+          <i class="fas fa-globe-europe classe-icon"></i>
+          <h3>CM1</h3>
+          <p>Cycle 3 - 9-10 ans</p>
+        </div>
+        <div class="classe-content">
+          <p>Préparation à un apprentissage plus autonome et structuré. Approfondissement des matières et développement de la méthodologie.</p>
+          <div class="classe-info">
+            <div class="info-item">
+              <i class="fas fa-child"></i>
+              <span>25 enfants max</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-user-graduate"></i>
+              <span>1 enseignant</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-clock"></i>
+              <span>8h - 17h</span>
+            </div>
+          </div>
+          <p><strong>Domaines :</strong> Histoire, géographie, sciences, technologie, anglais approfondi</p>
+        </div>
+      </div>
+
+      <!-- Classe CM2 -->
+      <div class="classe">
+        <div class="classe-image">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Classe CM2">
+        </div>
+        <div class="classe-header">
+          <i class="fas fa-graduation-cap classe-icon"></i>
+          <h3>CM2</h3>
+          <p>Cycle 3 - 10-11 ans</p>
+        </div>
+        <div class="classe-content">
+          <p>Année charnière pour préparer le passage au collège avec rigueur. Consolidation des acquis et préparation à l'autonomie du secondaire.</p>
+          <div class="classe-info">
+            <div class="info-item">
+              <i class="fas fa-child"></i>
+              <span>25 enfants max</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-user-graduate"></i>
+              <span>1 enseignant</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-clock"></i>
+              <span>8h - 17h</span>
+            </div>
+          </div>
+          <p><strong>Préparation :</strong> Méthodologie de travail, projets interdisciplinaires, orientation</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- === SECTION DES ENSEIGNANTS === -->
+    <section class="enseignants-section">
+      <div class="section-title">
+        <h2>Notre Équipe Pédagogique</h2>
+      </div>
+      
+      <div class="teachers-container">
+        <!-- Enseignant 1 (Maternelle) -->
+        <div class="teacher-card">
+          <div class="teacher-image">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Marie Dubois">
+          </div>
+          <div class="teacher-info">
+            <h4>Marie Dubois</h4>
+            <div class="subject">Maternelle</div>
+            <p>Diplômée en éducation de la petite enfance avec 10 ans d'expérience.</p>
+            <div class="teacher-social">
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Enseignant 2 (CP1 & CP2) -->
+        <div class="teacher-card">
+          <div class="teacher-image">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Thomas Martin">
+          </div>
+          <div class="teacher-info">
+            <h4>Thomas Martin</h4>
+            <div class="subject">CP1 & CP2</div>
+            <p>Spécialiste des apprentissages fondamentaux et de la pédagogie différenciée.</p>
+            <div class="teacher-social">
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Enseignant 3 (CE1 & CE2) -->
+        <div class="teacher-card">
+          <div class="teacher-image">
+            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Sophie Lambert">
+          </div>
+          <div class="teacher-info">
+            <h4>Sophie Lambert</h4>
+            <div class="subject">CE1 & CE2</div>
+            <p>Passionnée par les sciences et les méthodes d'apprentissage actif.</p>
+            <div class="teacher-social">
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Enseignant 4 (CM1 & CM2) -->
+        <div class="teacher-card">
+          <div class="teacher-image">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Pierre Leroy">
+          </div>
+          <div class="teacher-info">
+            <h4>Pierre Leroy</h4>
+            <div class="subject">CM1 & CM2</div>
+            <p>Expert en préparation au collège avec une approche méthodologique rigoureuse.</p>
+            <div class="teacher-social">
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- === GALERIE DE L'ÉCOLE === -->
+    <section class="school-gallery">
+      <div class="section-title">
+        <h2>Galerie de Notre École</h2>
+      </div>
+      <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">Découvrez notre environnement d'apprentissage à travers ces photos de nos salles de classe, espaces communs et cours de récréation.</p>
+      
+      <div class="gallery-container">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Bibliothèque de l'école">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Cantine scolaire">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Cour de récréation">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Salle de sciences">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Atelier artistique">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Salle informatique">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- === PIED DE PAGE === -->
+  <footer>
+    <div class="container">
+      <!-- Grille de 4 colonnes -->
+      <div class="footer-grid">
+        <!-- Colonne 1 : Présentation école -->
+        <div class="footer-col">
+          <div class="logo">
+            <i class="fas fa-school logo-icon"></i>
+            <div class="logo-text">École <span>Tinka-Tout</span></div>
+          </div>
+          <p>Éducation de qualité pour les enfants de la Garderie, de la Maternelle (Section 1 et Section 2) jusqu’au CM2.  
+  Un environnement bienveillant qui favorise l’épanouissement et l’excellence</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <!-- Colonne 2 : Liens rapides -->
+        <div class="footer-col">
+          <h3>Liens Rapides</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="presentation1.html">Présentation</a></li>
+            <li><a href="classes.html">Nos Classes</a></li>
+            <li><a href="inscription.html">Inscriptions</a></li>
+            <li><a href="actualites.html">Actualités</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Colonne 3 : Horaires -->
+        <div class="footer-col">
+          <h3>Horaires</h3>
+          <ul class="footer-links">
+            <li>Lundi - Vendredi: 7h30 - 17h30</li>
+            <li>Samedi: 8h - 12h (activités périscolaires)</li>
+            <li>Dimanche: Fermé</li>
+          </ul>
+        </div>
+        
+        <!-- Colonne 4 : Contact -->
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <ul class="footer-contact">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>sise coté sud du bar carrefour des grands Adetikopé route Djaglé, Lomé - Togo</span>
+            </li>
+            <li>
+              <i class="fas fa-phone"></i>
+              <span>+228 90 09 30 95</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>contact@ecole-tinka-tout.tg</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Copyright -->
+      <div class="copyright">
+        <p>&copy; 2025 École Tinka-Tout - Tous droits réservés</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- === JAVASCRIPT === -->
+  <script>
+    // ===== MENU MOBILE =====
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('nav');
+    
+    // Toggle menu mobile
+    mobileMenuBtn.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+    
+    // Fermer le menu au clic sur un lien
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('active');
+      });
+    });
+    
+    // ===== HEADER SCROLL =====
+    const header = document.querySelector('header');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+      } else {
+        header.style.backgroundColor = 'white';
+        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+      }
+    });
+    
+    // ===== ANIMATION AU SCROLL =====
+    // Fonction pour animer les éléments lorsqu'ils entrent dans la vue
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('.classe, .teacher-card, .gallery-item');
+      
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if (elementPosition < screenPosition) {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }
+      });
+    };
+    
+    // Initialiser les styles d'animation
+    document.querySelectorAll('.classe, .teacher-card, .gallery-item').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    });
+    
+    // Écouter l'événement scroll
+    window.addEventListener('scroll', animateOnScroll);
+    // Animer les éléments visibles au chargement
+    window.addEventListener('load', animateOnScroll);
+    
+    // ===== ANIMATION DES ICÔNES =====
+    const classeIcons = document.querySelectorAll('.classe-icon');
+    
+    classeIcons.forEach(icon => {
+      icon.addEventListener('mouseover', () => {
+        icon.style.transform = 'scale(1.2) rotate(5deg)';
+      });
+      
+      icon.addEventListener('mouseout', () => {
+        icon.style.transform = 'scale(1) rotate(0)';
+      });
+    });
+  </script>
+</body>
+</html>
